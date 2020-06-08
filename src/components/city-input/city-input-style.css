@@ -1,0 +1,19 @@
+.city-input{
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 45px;
+    margin-top: .4em;
+}
+.input-form{
+    display: flex;
+    flex-grow: 1;
+    margin-top: .5em;
+}
+.in{
+    font-family: 'Open Sans', sans-serif;
+    width: 250px;
+    height: 30px;
+    background: #ffffff;
+}
