@@ -3,27 +3,43 @@ import "./app-style.css";
 import WeatherCard from "../weather-card/weather-card";
 import CityInput from "../city-input/city-input";
 
+import WeatherApiService from "../../services/weather-app-service";
+
 export default class App extends Component {
 
+    weatherApi = new WeatherApiService()
+
     state = {
-        searchValue: ''
+        townName: '',
+        weather: '',
+        icon: '',
+        temp:'',
     }
 
-    onSearch=(s)=>{
-        this.setState({searchValue: s})
+    onInput = (nameInput) => {
+        this.onGetWeather(nameInput)
     }
 
-    onMatch=()=>{
-        this.setState({searchValue:''})
+    onGetWeather = (nameInput) => {
+        this.weatherApi.getWeather(nameInput)
+            .then((body)=>{
+                this.setState((state)=>{
+                    return{
+                        townName: body.name,
+                        weather: body.weather[0].description,
+                        icon: body.weather[0].icon,
+                        temp:body.main.temp,
+                    }
+                })
+            })
+            .catch((err)=>console.log(err))
     }
 
     render() {
-        const {searchValue} = this.state
         return (
             <div>
-                <CityInput onSearch={this.onSearch}/>
-                <WeatherCard searchValue={searchValue}
-                             onMatch={this.onMatch}/>
+                <CityInput onInput={this.onInput}/>
+                <WeatherCard data={this.state}/>
             </div>
         )
     }

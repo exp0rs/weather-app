@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import "./city-input-style.css"
 
 export default class CityInput extends Component{
+
     state = {
         searchValue: ''
     }
@@ -14,8 +15,10 @@ export default class CityInput extends Component{
 
     onSubmit=(e)=>{
         e.preventDefault()
-        this.props.onSearch(this.state.searchValue)
-        this.setState({searchValue: ''})
+        this.props.onInput(this.state.searchValue)
+        this.setState({
+            searchValue: ''
+        })
     }
 
     render(){

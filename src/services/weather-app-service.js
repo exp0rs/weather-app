@@ -2,30 +2,28 @@ import React, {Component} from "react";
 
 export default class WeatherApiService {
 
-    _apiKey = 'vly5PrGw8QHmJiPid0gkhx9UMCAMyyGd'
+    _apiKey = 'be4901119b449048c22cf5841a0c7bc5'
+    _apiBase = '//api.openweathermap.org/data/2.5/'
 
-    async getCity(city) {
 
-        const base = 'http://dataservice.accuweather.com/locations/v1/cities/search'
-        const query = `?apikey=${this._apiKey}&q=${city}`
+    async getResource(url) {
 
-        const res = await fetch(base + query)
-            if (!res.ok){
-                throw new Error(`Could not FETCH ${res}`)
-            }
+        const res = await fetch(`${this._apiBase}${url}${this._apiKey}`)
 
-        const data = await res.json()
-        return data[0]
+        if (!res.ok) {
+            throw new Error(`NOT FETCHING ${url}, ${res.status}`)
+        }
 
+        const body = await res.json()
+        console.log(body)
+        return body
     }
 
-    async getCurrentConditions(id){
-        const base = 'http://dataservice.accuweather.com/currentconditions/v1/'
-        const query = `${id}?apikey=${this._apiKey}`
-        const res = await fetch(base+query)
-        const data = await res.json()
-        return data
+    async getWeather (townName) {
+        return await this.getResource(`weather?q=${townName}&appid=`)
     }
+
+
 }
 
 
