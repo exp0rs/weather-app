@@ -9,8 +9,13 @@
     border: 4px solid rgba(50, 50, 50, 0.05);
     border-radius: 30px;
 }
+.ikon{
+    background: #a7dffa;
+    width: 200px;
+    height: 200px;
+}
 .town-name{
-    background: sandybrown;
+
     margin-top: .8em;
     font-size: 35px;
     font-family: 'Roboto', sans-serif;
@@ -19,13 +24,13 @@
     margin-top: .8em;
 }
 .condition-weather-div{
-    background: sandybrown;
+
     margin-top: .8em;
     font-size: 28px;
     font-family: 'Open Sans', sans-serif;
 }
 .temp-div{
-    background: sandybrown;
+
     margin-top: .4em;
     font-size: 38px;
     font-family: 'Open Sans', sans-serif;

@@ -8,7 +8,7 @@ export default class WeatherApiService {
 
     async getResource(url) {
 
-        const res = await fetch(`${this._apiBase}${url}${this._apiKey}`)
+        const res = await fetch(`${this._apiBase}${url}${this._apiKey}&units=metric`)
 
         if (!res.ok) {
             throw new Error(`NOT FETCHING ${url}, ${res.status}`)

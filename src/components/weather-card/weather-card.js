@@ -2,15 +2,14 @@ import React from "react";
 import "./weather-card-style.css";
 
 const WeatherCard = ({data}) => {
-    const {townName,weather,temp} = data
+    const {townName,weather,icon,temp} = data
     return (
             <div className="card-weather">
                 <div className="town-name">
                     <span>{townName}</span>
                 </div>
-                <img className="placeholder-img" src="https://via.placeholder.com/250"/>
                 <div className="ikon">
-                    <span></span>
+                    <img className="placeholder-img" src={`http://openweathermap.org/img/wn/${icon}@2x.png`}/>
                 </div>
                 <div className="condition-weather-div">
                     <span>{weather}</span>
