@@ -13,10 +13,10 @@ export default class App extends Component {
     state = {
         loading: false,
         error: false,
-        townName: '',
-        weather: '',
-        icon: '',
-        temp:'',
+        townName: 'Moscow',
+        icon: '01d',
+        weather: 'clear sky',
+        temp:'23.96',
     }
 
     onInput = (nameInput) => {

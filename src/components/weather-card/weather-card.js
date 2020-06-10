@@ -6,18 +6,26 @@ export default class WeatherCard extends Component {
 
     render(){
         const {data} = this.props
-
         const loa = data.loading
+        const msg = data.error ? <ErrorMsg/> : ""
 
-        const loader = loa ? <Loader className="placeholder-img"/> : null
+        const loader = loa ? <Loader className="placeholder-img"/> : <WeatherView data={data}/>
 
         return (
             <div className="card-weather">
+                {msg}
                 {loader}
-                <WeatherView data={data}/>
             </div>
         )
     }
+}
+
+const ErrorMsg = () => {
+    return (
+        <div className="error-msg">
+            <h3>wrong city name</h3>
+        </div>
+    )
 }
 
 const WeatherView = ({data}) => {
