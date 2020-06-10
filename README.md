@@ -3,3 +3,7 @@
     - Fetching data from api.openweathermap.org
     - Cheking for wrong city name (msg ing form)
     - Lading data icon (animated rainbow)
+    
+### what will be added:
+    -Changing color scheme by data forecast weather
+    -Code structure will be changed
