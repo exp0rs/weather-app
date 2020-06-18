@@ -1,6 +1,6 @@
 import React from "react";
 import "./loader-style.css"
-
+//loader - rainbow animation
 const Loader = () => {
     return(
         <div className="loader">
